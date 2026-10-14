@@ -197,9 +197,7 @@ footer{border-top:1px solid var(--b);background:#020409;padding:0;text-align:lef
 /* aviso quando o vídeo não carrega */
 .em{position:absolute;inset:0;display:grid;place-content:center;text-align:center;padding:20px;font-size:12px;line-height:1.6;color:var(--tx2);background:#05080f;z-index:1}
 
-/* brilho do card de contato */
+/* brilho do card de contato (sem glow fora do card) */
 .cta.rv.in{animation:up 1s var(--ease) backwards,rot 8s linear infinite}
-.cta{box-shadow:0 0 90px rgba(53,224,255,.12)}
+.cta{box-shadow:none}
 .cta::before{top:0;left:0;width:40%;height:100%}
-#contact .wrap{position:relative}
-#contact .wrap::before{content:"";position:absolute;inset:-4px;border-radius:42px;background:conic-gradient(from var(--a),var(--c2),var(--c),#b6f6ff,var(--c2));filter:blur(32px);opacity:.5;animation:rot 8s linear infinite}
