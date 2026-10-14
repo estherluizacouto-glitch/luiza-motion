@@ -32,8 +32,8 @@ const TOOLS = [
 // 5) Perguntas frequentes
 const FAQ = [
   ["What software do you use for editing?", "I mainly use After Effects for motion design and animation, and Premiere Pro for video editing. For design and assets, I use Photoshop and Illustrator."],
-  ["How fast will I receive my video?", "It depends on the project. Short videos usually take 2 to 4 days; bigger projects, 1 to 2 weeks. We agree on the deadline before starting."],
-  ["What payment methods do you accept?", "Bank transfer, PayPal and card. Usually 50% upfront and 50% on delivery."],
+  ["How fast will I receive my video?", "It depends on the project. Short videos usually take 1 to 4 days; bigger projects, 3 to 14 days. We agree on the deadline before starting."],
+  ["What payment methods do you accept?", "PayPal and Wise. Usually 50% upfront and 50% on delivery."],
   ["Are there any limits on revisions?", "Up to 2 rounds of revisions are included. Extra changes can be agreed on separately."],
   ["What do you need from me to get started?", "Your raw files (footage, audio, logos), a reference for the style you like and your preferred deadline."]
 ];
