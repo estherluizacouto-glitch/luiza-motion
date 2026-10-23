@@ -16,10 +16,7 @@ const VIDEOS = [
   { src: "videos/video4.mp4",  poster: "videos/capa4.jpg" },
   { src: "videos/video5.mp4",  poster: "videos/capa5.jpg" },
   { src: "videos/video6.mp4",  poster: "videos/capa6.jpg" },
-  { src: "videos/video7.mp4",  poster: "videos/capa7.jpg" },
-  { src: "videos/video8.mp4",  poster: "videos/capa8.jpg" },
-  { src: "videos/video9.mp4",  poster: "videos/capa9.jpg" },
-  { src: "videos/video10.mp4", poster: "videos/capa10.jpg" }
+  { src: "videos/video7.mp4",  poster: "videos/capa7.jpg" }
 ];
 
 // 4) Ferramentas: nome, nível (0-100) e ícone (pasta /img/icons)
