@@ -92,12 +92,20 @@ new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(l=
 addEventListener('scroll',()=>{const y=scrollY;bar.style.transform=`scaleX(${y/(document.body.scrollHeight-innerHeight)})`;
  if(!RM&&y<innerHeight){hc.style.transform=`translateY(${y*.22}px)`;hc.style.opacity=1-y/(innerHeight*.9)}},{passive:true});
 
- // Instagram: copia a mensagem pronta e abre a DM
-const toast=document.createElement('div');toast.className='toast';document.body.appendChild(toast);
-document.querySelectorAll('[data-copy]').forEach(a=>a.addEventListener('click',e=>{
- e.preventDefault();
- if(navigator.clipboard)navigator.clipboard.writeText(a.dataset.copy).catch(()=>{});
- toast.textContent='Message copied! Paste it in the DM 💬';toast.classList.add('on');
- setTimeout(()=>toast.classList.remove('on'),3500);
- window.open(a.href,'_blank','noopener');
-}));
+// Instagram: copia a mensagem pronta e abre a DM
+(function(){
+ const toast=document.createElement('div');
+ toast.style.cssText='position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);opacity:0;background:#35E0FF;color:#02121a;padding:14px 24px;border-radius:100px;font:700 13px Montserrat,sans-serif;z-index:9999;transition:all .4s ease;pointer-events:none;box-shadow:0 10px 30px rgba(53,224,255,.35);max-width:90vw;text-align:center';
+ document.body.appendChild(toast);
+ function show(t){toast.textContent=t;toast.style.opacity=1;toast.style.transform='translate(-50%,0)';clearTimeout(show.t);show.t=setTimeout(()=>{toast.style.opacity=0;toast.style.transform='translate(-50%,20px)'},4000)}
+ function copy(text){
+  if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(text);
+  return new Promise((ok,no)=>{const ta=document.createElement('textarea');ta.value=text;ta.style.cssText='position:fixed;opacity:0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')?ok():no()}catch(e){no()}ta.remove()})
+ }
+ document.querySelectorAll('[data-copy]').forEach(a=>a.addEventListener('click',e=>{
+  e.preventDefault();
+  copy(a.dataset.copy).then(()=>show('Message copied! Paste it in the DM 💬')).catch(()=>show('Could not copy. Message: '+a.dataset.copy));
+  if(matchMedia('(pointer:coarse)').matches)setTimeout(()=>location.href=a.href,1400);
+  else window.open(a.href,'_blank','noopener');
+ }));
+})();
