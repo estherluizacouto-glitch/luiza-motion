@@ -208,6 +208,3 @@ footer{border-top:1px solid var(--b);background:#020409;padding:0;text-align:lef
 .fc a.ig:hover{color:#E1306C}
 .fc a.dc:hover{color:#7289ff}
 .fi.ig:hover{background:#E1306C;border-color:#E1306C;color:#fff}
-
-.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);opacity:0;background:var(--c);color:#02121a;padding:12px 22px;border-radius:100px;font-weight:700;font-size:13px;z-index:200;transition:.4s var(--ease);pointer-events:none;box-shadow:0 10px 30px rgba(53,224,255,.35)}
-.toast.on{opacity:1;transform:translate(-50%,0)}
