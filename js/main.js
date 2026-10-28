@@ -91,3 +91,13 @@ const links=$$('.pill a:not(.cta)'),hc=$('#hc'),bar=$('#bar');
 new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id))}),{threshold:.45}).observe&&['home','work','about','faq'].forEach(id=>{new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+id))}),{threshold:.45}).observe(document.getElementById(id))});
 addEventListener('scroll',()=>{const y=scrollY;bar.style.transform=`scaleX(${y/(document.body.scrollHeight-innerHeight)})`;
  if(!RM&&y<innerHeight){hc.style.transform=`translateY(${y*.22}px)`;hc.style.opacity=1-y/(innerHeight*.9)}},{passive:true});
+
+ // Instagram: copia a mensagem pronta e abre a DM
+const toast=document.createElement('div');toast.className='toast';document.body.appendChild(toast);
+document.querySelectorAll('[data-copy]').forEach(a=>a.addEventListener('click',e=>{
+ e.preventDefault();
+ if(navigator.clipboard)navigator.clipboard.writeText(a.dataset.copy).catch(()=>{});
+ toast.textContent='Message copied! Paste it in the DM 💬';toast.classList.add('on');
+ setTimeout(()=>toast.classList.remove('on'),3500);
+ window.open(a.href,'_blank','noopener');
+}));
